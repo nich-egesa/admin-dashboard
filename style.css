@@ -84,6 +84,12 @@ body{
     }
 
 }
+    .sidebar{
+
+        width: 50px;
+
+    }
+
 
 @media (min-width: 768px) {
      .sidebar{
