@@ -5,12 +5,37 @@
 
 <body>
 	<!-- All our code. write here   -->
-    <?php require_once("includes/header.php") ?>
+    
 
 
-<?php require_once ("includes/sidebar.php") ?>
 
-<div class=" main-content">
+
+<?php 
+    require_once("dbconnection.php");
+    if( isset($_POST["enrollstudent"]) )
+    {
+        //1.fetch form data
+        $name = $_POST["name"];
+        $regnumber =$_POST["reg_number"];
+        $phone =$_POST["phone"];
+        $email =$_POST["email"];
+        $course =$_POST["course"];
+
+        //storing user data to the table kuja
+        $storesStudentRecords=mysqli_query($connection, "INSERT INTO enrollments(name,reg_number,phone,email,course)VALUES('$name','$regnumber','$phone','$email','$course')");
+        //check if the statement results to truthy
+        if($storesStudentRecords)
+        {
+            echo "data submitted successfully";
+        }
+        else
+        {
+            echo "Error occured";
+        }
+    }
+?>
+
+<div class="main-content">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-lg-12">
@@ -19,36 +44,36 @@
                         <span>Enter student information</span>
 					</div>
                     <div class="card-body">
-                        <form action="">
+                        <form action="addstudents.php" method="POST">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="">Enter your Name</label>
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" name="name">
                                     </div>        
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="">Please enter Reg Number</label>
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" name="reg_number">
                                     </div>    
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="">Please enter Phone number</label>
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" name="phone">
                                     </div>  
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="">Your email address</label>
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" name="email">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="">Please select your course</label>
-                                        <select name="course" id="" class="form-control">
+                                        <select name="course" id="" class="form-control" name="course">
                                             <option value="">--select course--</option>
                                             <option value="Web Design & Development">Web Design & Development</option>
                                             <option value="Andriod Design & development">Andriod design &development </option>
@@ -60,9 +85,9 @@
                                 </div>
                             </div>
                             <div class="col-lg-4">
-                                <a href=""class="btn btn-success btn-sm">
+                                <button type="submit" class="btn btn-success btn-sm" name="enrollstudent">
                                     Enroll
-                                </a>
+                            </button>
                         </form>
                     </div>
 				</div>
