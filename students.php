@@ -9,6 +9,12 @@
 
 <?php require_once("includes/sidebar.php") ?>
 
+<?php 
+    //.database connection
+    require_once('dbconnection.php');
+    $fetchstudentsRecords = mysqli_query($connection, "SELECT * FROM enrollments");
+?>
+
 <div class=" main-content">
 	<div class="container-fluid">
 		<div class="row">
@@ -19,7 +25,7 @@
                         <a href="addstudents.php"class="btn btn-secondary btn-sm float-right">add student</a>
 					</div>
                     <div class="card-body">
-                        <table class="table table-striped table-hover table-responsive" style="font-size:12px">
+                        <table class="table table-striped table-hover table-responsive" style="font-size:11px">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -33,26 +39,28 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Nicholas Egesa</td>
-                                    <td>P/NO 535397</td>
-                                    <td>0713068087</td>
-                                    <td>nicholasegesa16@gmail.com</td>
-                                    <td>Wed Design & Development</td>
-                                    <td>1 july 2022</td>
-                                    <td>
-                                        <a href=""class="btn btn-primary btn-sm">
-                                            <i class="fa fa-edit"></i>
-                                        </a>
-                                        <a href=""class="btn btn-success btn-sm">
-                                            <i class="fa fa-eye"></i>
-                                        </a>
-                                        <a href=""class="btn btn-danger btn-sm">
-                                            <i class="fa fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
+                                <?php while($row=mysqli_fetch_array($fetchstudentsRecords)) {?>
+                                        <tr>
+                                            <td><?php echo $row['id']  ?></td>
+                                            <td><?php echo $row['name']?></td>
+                                            <td><?php echo $row['reg_number'] ?></td>
+                                            <td><?php echo $row['phone'] ?></td>
+                                            <td><?php echo $row['email'] ?></td>
+                                            <td><?php echo $row['course'] ?></td>
+                                            <td><?php echo $row['created_at'] ?></td>
+                                            <td>
+                                                <a href=""class="btn btn-primary btn-sm">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                                <a href=""class="btn btn-success btn-sm">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                                <a href=""class="btn btn-danger btn-sm">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                <?php }?>
                             </tbody>
                         </table>
                     </div>

@@ -5,12 +5,15 @@
 
 <body>
 	<!-- All our code. write here   -->
+    <?php require_once('includes/header.php') ?>
+    <?php require_once('includes/sidebar.php') ?>
     
 
 
 
 
 <?php 
+    $message='';
     require_once("dbconnection.php");
     if( isset($_POST["enrollstudent"]) )
     {
@@ -26,11 +29,11 @@
         //check if the statement results to truthy
         if($storesStudentRecords)
         {
-            echo "data submitted successfully";
+            $message= "data submitted successfully";
         }
         else
         {
-            echo "Error occured";
+            $message="Error occured";
         }
     }
 ?>
@@ -41,7 +44,8 @@
 			<div class="col-lg-12">
 				<div class="card">
 					<div class="card-header bg-dark text-white text-center">
-                        <span>Enter student information</span>
+                        <span>Enter student information</span><br>
+                        <span class="text-success"><?php echo $message ?></span>
 					</div>
                     <div class="card-body">
                         <form action="addstudents.php" method="POST">
