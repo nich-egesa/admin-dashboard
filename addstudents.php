@@ -25,7 +25,7 @@
         $course =$_POST["course"];
 
         //storing user data to the table kuja
-        $storesStudentRecords=mysqli_query($connection, "INSERT INTO enrollments(name,reg_number,phone,email,course)VALUES('$name','$regnumber','$phone','$email','$course')");
+        $storesStudentRecords=mysqli_query($connection, "INSERT INTO enrollments(name,regnumber,phone,email,course)VALUES('$name','$regnumber','$phone','$email','$course')");
         //check if the statement results to truthy
         if($storesStudentRecords)
         {
@@ -43,9 +43,9 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="card">
-					<div class="card-header bg-dark text-white text-center">
+					<div class="card-header bg-secondary text-white text-center">
                         <span>Enter student information</span><br>
-                        <span class="text-success"><?php echo $message ?></span>
+                        <span class="text-primary"><?php echo $message ?></span>
 					</div>
                     <div class="card-body">
                         <form action="addstudents.php" method="POST">
@@ -89,7 +89,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-4">
-                                <button type="submit" class="btn btn-success btn-sm" name="enrollstudent">
+                                <button type="submit" class="btn btn-primary btn-sm" name="enrollstudent">
                                     Enroll
                             </button>
                         </form>

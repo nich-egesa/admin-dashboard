@@ -19,22 +19,17 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-lg-12">
-				<div class="card">
-					<div class="card-header bg-dark text-white text-center">
-                        <span>students</span>
-                        <a href="addstudents.php"class="btn btn-primary btn-sm float-right">add student</a>
+				<div class="card-header bg-primary text-white text-center">
+                        <span>subscribers</span>
+                        <a href="addstudents.php"class="btn btn-primary btn-sm float-right">add subscribers</a>
 					</div>
                     <div class="card-body">
                         <table class="table table-striped table-hover table-responsive" style="font-size:11px">
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Name</th>
-                                    <th>Reg Number</th>
-                                    <th>Phone</th>
                                     <th>Email</th>
-                                    <th>course</th>
-                                    <th>Enrolled On</th>
+                                    <th>subcribed At</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -42,11 +37,7 @@
                                 <?php while($row=mysqli_fetch_array($fetchstudentsRecords)) {?>
                                         <tr>
                                             <td><?php echo $row['id']  ?></td>
-                                            <td><?php echo $row['name']?></td>
-                                            <td><?php echo $row['reg_number'] ?></td>
-                                            <td><?php echo $row['phone'] ?></td>
-                                            <td><?php echo $row['email'] ?></td>
-                                            <td><?php echo $row['course'] ?></td>
+                                            <td><?php echo $row['email']?></td>
                                             <td><?php echo $row['created_at'] ?></td>
                                             <td>
                                                 <a href=""class="btn btn-primary btn-sm">
