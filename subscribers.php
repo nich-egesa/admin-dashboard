@@ -12,7 +12,7 @@
 <?php 
     //.database connection
     require_once('dbconnection.php');
-    $fetchstudentsRecords = mysqli_query($connection, "SELECT * FROM enrollments");
+    $fetchsubscribersRecords = mysqli_query($connection, "SELECT * FROM subscribers");
 ?>
 
 <div class=" main-content">
@@ -21,10 +21,10 @@
 			<div class="col-lg-12">
 				<div class="card-header bg-primary text-white text-center">
                         <span>subscribers</span>
-                        <a href="addstudents.php"class="btn btn-primary btn-sm float-right">add subscribers</a>
+                        <a href="addsubscribers.php"class="btn btn-primary btn-sm float-right">add subscribers</a>
 					</div>
                     <div class="card-body">
-                        <table class="table table-striped table-hover table-responsive" style="font-size:11px">
+                        <table class="table table-striped table-hover table-responsive" style="font-size:12px">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -34,7 +34,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php while($row=mysqli_fetch_array($fetchstudentsRecords)) {?>
+                             <?php while($row=mysqli_fetch_array($fetchsubscribersRecords)) {?>
                                         <tr>
                                             <td><?php echo $row['id']  ?></td>
                                             <td><?php echo $row['email']?></td>
