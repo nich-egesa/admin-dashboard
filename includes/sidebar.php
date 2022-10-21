@@ -31,6 +31,12 @@
 					<span>subscribers</span>
 				</a>
 			</li>
+			<li>
+				<a href="message.php">
+				<span><i class="fa fa-envelope"></i></span>
+				<span>Message</span>
+			</a>
+			</li>
 		</ul>
 	</nav>
 </div>
