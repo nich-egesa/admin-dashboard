@@ -7,6 +7,30 @@
 	<!-- All our code. write here   -->
     <?php require_once('includes/header.php') ?>
     <?php require_once('includes/sidebar.php') ?>
+    <?php 
+        require_once('dbconnection.php');
+        $fetchStudentRecord = mysqli_query($connection,"SELECT * FROM enrollments WHERE id='".$_GET['email']."'   ");
+        while($row = mysqli_fetch_array($fetchStudentRecord))
+        {
+            $studentEmail = $row['email'];
+        }
+
+    ?>
+    <?php
+    if( isset($_POST['updatesubscribers'])){
+        //make database query
+        $updatesubscribers =mysqli_query($connection, "UPDATE enrollments SET name=$name, 'email='$email' WHERE id='".$_GET['id']."' ");
+
+        if($updatesubscribers)
+        {
+            echo "User records update";
+        }
+        else
+        {
+            echo "Error";
+        }
+    }
+    ?>
     
 
 
@@ -23,9 +47,9 @@
         
 
         //storing user data to the table kuja
-        $storesSubscribersRecords=mysqli_query($connection, "INSERT INTO subscribers(email)VALUES('$Email')");
+        $storessubscribersRecords=mysqli_query($connection, "INSERT INTO subscribers(email)VALUES('$Email')");
         //check if the statement results to truthy
-        if($storesSubscribersRecords)
+        if($storessubscribersRecords)
         {
             $message= "data submitted successfully";
         }
@@ -51,7 +75,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="">Email</label>
-                                        <input type="text" class="form-control" name="email">
+                                        <input type="email" class="form-control" name="email" >
                                     </div> 
                                     <div class="col-lg-4">
                                 <button type="submit" class="btn btn-primary btn-sm" name="enrollsubscribers">
@@ -64,4 +88,3 @@
         </div>
     </div>
 </div>
-        

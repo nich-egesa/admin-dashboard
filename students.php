@@ -52,10 +52,10 @@
                                                 <a href="editStudent.php?id=<?php echo $row['id'] ?>"class="btn btn-primary btn-sm">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
-                                                <a href=""class="btn btn-success btn-sm">
+                                                <a href="displaystudent.php?id=<?php echo $row['id'] ?>" class="btn btn-success btn-sm">
                                                     <i class="fa fa-eye"></i>
                                                 </a>
-                                                <a href=""class="btn btn-danger btn-sm">
+                                                <a href="delete.php?id=<?php echo $row['id'] ?>"class="btn btn-danger btn-sm">
                                                     <i class="fa fa-trash"></i>
                                                 </a>
                                             </td>

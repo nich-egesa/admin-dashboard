@@ -25,7 +25,7 @@
         $course =$_POST["course"];
 
         //storing user data to the table kuja
-        $storesStudentRecords=mysqli_query($connection, "INSERT INTO enrollments(name,regnumber,phone,email,course)VALUES('$name','$regnumber','$phone','$email','$course')");
+        $storesStudentRecords=mysqli_query($connection, "INSERT INTO enrollments(name,reg_number,phone,email,course)VALUES('$name','$regnumber','$phone','$email','$course')");
         //check if the statement results to truthy
         if($storesStudentRecords)
         {
